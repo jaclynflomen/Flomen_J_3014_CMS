@@ -89,7 +89,7 @@ INSERT INTO `tbl_products` (`product_id`, `product_name`, `product_brand`, `prod
 (23, 'Apple Watch Series 4 GPS, 40mm Gold Aluminum with Pink Sport Band', 'Apple', '519.00', 'Pink', 'AppleWatch.png'),
 (24, 'Fitbit Versa Smartwatch', 'Fitbit', '249.99', 'Grey', 'FitBit_SmartWatch.png'),
 (25, 'Fitbit Charge 3 Charging Cable', 'Fitbit', '24.95', 'Black', 'Fitbit_Charge3_Charging_Cable.png'),
-(26, 'Vans Men\'s Ultrarange Rapidweld Shoes', 'Vans', '109.99', 'Black', 'Vans_Mens_Ultrarange_Rapidwel.png'),
+(26, 'Vans Men\'s Ultrarange Rapidweld Shoes', 'Vans', '109.99', 'Black', 'Vans_Mens_Ultrarange_Rapidweld.png'),
 (27, 'Converse Women\'s CT Ox Shoes', 'Converse', '64.99', 'White', 'Converse_Womens_CT_Ox.png'),
 (28, 'Under Armour Men\'s Curry 6 \"All-Star\" Basketball Shoes', 'Under Armour', '159.99', 'Green', 'Under_Armour_Mens_Curry_6_Basketball.png'),
 (29, 'adidas Women\'s Ultraboost 19 Running Shoes', 'adidas', '250.00', 'Indigo', 'adidas_Womens_Ultraboost_19.png'),

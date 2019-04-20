@@ -12,6 +12,8 @@ if(isset($_GET['id'])){
 <!doctype html>
 <html>
 <head>
+<link rel="stylesheet" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
 	<meta charset='utf-8'>
 	<title>SportChek Products</title>
 </head>

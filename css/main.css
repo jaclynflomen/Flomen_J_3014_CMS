@@ -1,21 +1,63 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer {
+    background-color: #252425;
+    color: white;
+    padding: 0.15em;
+    text-align: center;
+}
+
 header {
     background-color: #252425;
     padding: 2%;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.25em;
+    text-transform: uppercase;
+    
 }
+
 
 header nav {
     float: right;
+    width: 60%;
 }
 
 header nav ul li {
     list-style: none;
     display: inline;
+    
 }
 
 header nav ul li a {
     color: white;
+    text-decoration: none;
+    padding-left: 2%;
+}
+
+header nav ul li a:hover {
+color: #ec3832;
 }
 
 #logo {
     width: 12em;
+}
+
+#productIMG{
+    height: 15em;
+}
+
+#products {
+    width: 15em;
+    text-align: center;
+}
+
+#products li {
+   display: inline-block;
+}
+
+#products a {
+    color: #ec3832;
+    font-weight: bold;
 }

@@ -17,19 +17,21 @@ if(isset($_GET['filter'])){
 <html>
 <head>
 	<link rel="stylesheet" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
 	<meta charset='utf-8'>
-	<title>Products Available</title>
+	<title>Products</title>
 </head>
 <body>
 	<?php include('templates/header.html'); ?>
-	<h1><?php echo $row['category_name'];?></h1>
-	<div>
+	<h1>Products Available</h1>
+	<div id="products">
+
 <?php while($row = $results->fetch(PDO::FETCH_ASSOC)):?>
-<img src="images/<?php echo $row['product_img'];?>" 
-	 alt="<?php echo $row['product_name'];?>">
-	 <h2><?php echo $row['product_name'];?></h2>
-	 <p><?php echo $row['product_brand'];?></p>
-	 <a href="details.php?id=<?php echo $row['product_id'];?>">See More</a>
+	<li float-left><img src="images/<?php echo $row['product_img'];?>" alt="<?php echo $row['product_name'];?>" id="productIMG">
+	<h2><?php echo $row['product_brand'];?></h2>
+	<p><?php echo $row['product_name'];?></p>
+	<a href="details.php?id=<?php echo $row['product_id'];?>">See More</a><br><br>
+	</li>
 <?php endwhile;?>
 	</div>
 
