@@ -1,10 +1,9 @@
 <?php
 require_once('scripts/config.php');
 confirm_logged_in();
-$id2 = $_SESSION['user_id']; //we put data into the session in the login.php file
+$id = $_SESSION['user_id']; //we put data into the session in the login.php file
 
 $tbl = 'tbl_products';
-$id = 'product_id';
 $col = 'product_id';
 $products = getAll($tbl);
 
