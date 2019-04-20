@@ -13,5 +13,10 @@
 				$id = $_GET['id'];
 				deleteProduct($id);
 				break;
+
+			case 'edit':
+				$id = $_GET['id'];
+				editProduct($id);
+				break;
 		}
 	}

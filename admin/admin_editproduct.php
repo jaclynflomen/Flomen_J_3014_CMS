@@ -1,25 +1,12 @@
 <?php
 require_once('scripts/config.php');
 confirm_logged_in();
-$id = $_SESSION['product_id']; //we put data into the session in the login.php file
+$id = $_SESSION['user_id']; //we put data into the session in the login.php file
 
 $tbl = 'tbl_products';
 $col = 'product_id';
+$products = getAll($tbl);
 
-$found_product_set = getSingle($tbl, $col, $id);
-if(is_string($found_product_set)){
-    $message = 'Failed to get product info!';
-}
-
-if(isset($_POST['submit'])){
-    $img = $_POST['img'];
-    $name = $_POST['title'];
-    $brand = $_POST['brand'];
-    $color = $_POST['color'];
-    $price = $_POST['price'];
-    $result = editProduct($id, $img, $title, $brand, $color, $price);
-	$message = $result;
-}
 ?>
 
 <!DOCTYPE html>
@@ -35,29 +22,29 @@ if(isset($_POST['submit'])){
 		<p><?php echo $message;?></p>
 	<?php endif;?>
 
-    <?php if($found_product = $found_product_set->fetch(PDO::FETCH_ASSOC)):?>
+    <!-- $_GET['product_id'] -->
 
     <h2>Edit Product</h2>
 
-    <form method="POST" action="admin_editproduct.php">
-    <label for="img">Product Image:</label>
-        <input type="file" name="img" id="img" value="<?php echo $found_product['product_img']; ?>"><br><br>
-
-        <label for="title">Product Name:</label>
-        <input type="text" name="title" id="title" value="<?php echo $found_product['product_name']; ?>"><br><br>
-
-        <label for="brand">Product Brand:</label>
-        <input type="text" name="brand" id="brand" value="<?php echo $found_product['product_brand']; ?>"><br><br>
-
-        <label for="color">Product Colour:</label>
-        <input type="text" name="color" id="color" value="<?php echo $found_product['product_color']; ?>"><br><br>
-
-        <label for="price">Product Price:</label>
-        <input type="text" name="price" id="price" value="<?php echo $found_product['product_price']; ?>"><br><br>
-
-		<button type="submit" name="submit">Edit Product</button> 
-        
-    </form>
-    <?php endif;?>
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Brand</th>
+                <th>Colour</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php while($product = $products->fetch(PDO::FETCH_ASSOC)):?>
+            <tr>
+                <td><?php echo $product['product_name'];?></td>
+                <td><?php echo $product['product_brand'];?></td>
+                <td><?php echo $product['product_color'];?></td>
+                <td><a href="admin_edit.php?product_id=<?php echo $product['product_id'];?>">Edit</a></td>
+            </tr>
+            <?php endwhile; ?>
+        </tbody>
+    </table>
 </body>
 </html>

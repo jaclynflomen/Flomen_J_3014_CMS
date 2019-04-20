@@ -1,19 +1,20 @@
 <?php 
 
-	function editProduct($id, $fname, $username, $password, $email){
+	function editProduct($id, $img, $title, $brand, $color, $price){
 		include('connect.php');
 
-		$update_product_query = 'UPDATE tbl_products SET user_fname=:fname, user_name=:username,';
-		$update_product_query .=' user_pass=:password, user_email=:email';
+		$update_product_query = 'UPDATE tbl_products SET product_img=:img, product_name=:title,';
+		$update_product_query .=' product_brand=:brand, user_color=:color, product_price=:price';
 		$update_product_query .=' WHERE product_id = :id';
 
 		$update_product_set = $pdo->prepare($update_product_query);
 		$update_product_set->execute(
 			array(
-				':fname'=>$fname,
-				':username'=>$username,
-				':password'=>$password,
-				':email'=>$email,
+				':product_img'=>$img,
+				':product_name'=>$title,
+				':product_brand'=>$brand,
+				':user_color'=>$color,
+				':product_price'=>$price,
 				':id'=>$id
 			)
 		);
