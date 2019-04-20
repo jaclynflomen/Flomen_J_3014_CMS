@@ -2,7 +2,8 @@
 require_once('scripts/config.php');
 confirm_logged_in();
 $id = $_SESSION['user_id']; //we put data into the session in the login.php file
-$_SESSION['id'] = $product_id;
+$_SESSION['id'] = $row['id'];
+
 
 $tbl = 'tbl_products';
 $col = 'product_id';
