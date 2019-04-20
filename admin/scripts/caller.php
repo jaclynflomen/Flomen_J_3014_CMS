@@ -11,7 +11,7 @@
 
 			case 'delete':
 				$id = $_GET['id'];
-				deleteUser($id);
+				deleteProduct($id);
 				break;
 		}
 	}

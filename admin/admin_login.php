@@ -32,7 +32,5 @@
 		<br>
 		<button type="submit">Submit</button>
 	</form><br><br>
-	<a href="admin_createuser.php">Create New User</a>
-	 <!-- create new user before logging in -->
 </body>
 </html>
