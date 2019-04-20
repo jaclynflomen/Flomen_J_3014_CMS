@@ -1,0 +1,21 @@
+header {
+    background-color: #252425;
+    padding: 2%;
+}
+
+header nav {
+    float: right;
+}
+
+header nav ul li {
+    list-style: none;
+    display: inline;
+}
+
+header nav ul li a {
+    color: white;
+}
+
+#logo {
+    width: 12em;
+}
