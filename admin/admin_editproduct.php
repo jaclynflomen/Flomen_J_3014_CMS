@@ -2,6 +2,7 @@
 require_once('scripts/config.php');
 confirm_logged_in();
 $id = $_SESSION['user_id']; //we put data into the session in the login.php file
+$_SESSION['id'] = $row['id'];
 
 $tbl = 'tbl_products';
 $col = 'product_id';
@@ -41,7 +42,7 @@ $products = getAll($tbl);
                 <td><?php echo $product['product_name'];?></td>
                 <td><?php echo $product['product_brand'];?></td>
                 <td><?php echo $product['product_color'];?></td>
-                <td><a href="admin_edit.php?product_id=<?php echo $product['product_id'];?>">Edit</a></td>
+                <td><a href="admin_edit.php?=$row['id']">Edit</a></td>
             </tr>
             <?php endwhile; ?>
         </tbody>
