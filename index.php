@@ -24,7 +24,7 @@ if(isset($_GET['filter'])){
 <body>
 	<?php include('templates/header.html'); ?>
 	<h1>Products Available</h1>
-	<div id="products">
+	<div class="products">
 
 <?php while($row = $results->fetch(PDO::FETCH_ASSOC)):?>
 	<li float-left><img src="images/<?php echo $row['product_img'];?>" alt="<?php echo $row['product_name'];?>" id="productIMG">

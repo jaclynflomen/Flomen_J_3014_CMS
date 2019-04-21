@@ -19,15 +19,16 @@ if(isset($_GET['id'])){
 </head>
 <body>
 	<?php include('templates/header.html'); ?>
-	<h1>This is the product site</h1>
-	<div>
+	<div class="details">
 	<?php while($row = $results->fetch(PDO::FETCH_ASSOC)):?>
-		<h2><?php echo $row['product_name'];?></h2>
-	 <p><?php echo $row['product_brand'];?></p>
-	 <h2>$<?php echo $row['product_price'];?></h2>
-	 <h3><?php echo $row['product_color'];?></h3>
+		<h1><?php echo $row['product_name'];?></h1>
+	
+	<div class="productDetails">
+		<h2><?php echo $row['product_brand'];?></h2>
+		<h3>$<?php echo $row['product_price'];?> - <?php echo $row['product_color'];?></h3>
+	 </div>
 
-		<img src="images/<?php echo $row['product_img'];?>" 
+		<img class="detailsImage" src="images/<?php echo $row['product_img'];?>" 
 	 alt="<?php echo $row['product_name'];?>">
 	<?php endwhile;?>
 	</div>
