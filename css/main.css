@@ -18,6 +18,12 @@ footer a {
     color: white;
     font-family: 'Roboto', sans-serif;
     text-align: left;
+    text-decoration: none;
+    margin-left: 25%;
+}
+
+footer p {
+    margin-left: -5%;
 }
 
 header {
