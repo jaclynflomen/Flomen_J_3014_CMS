@@ -4,8 +4,10 @@ if(isset($_GET['id'])){
 	$col = 'product_id';
 	$value = $_GET['id'];
 	$results = getSingle($tbl, $col, $value);
-}else{
-	
+}
+
+if(is_string($results)){
+    $message = 'Failed to get user info!';
 }
 
 if(isset($_POST['submit'])){
@@ -14,14 +16,8 @@ if(isset($_POST['submit'])){
     $brand = $_POST['brand'];
     $color = $_POST['color'];
     $price = $_POST['price'];
-    //Validation
-    if(empty($title)){
-        $message = 'Please fill out the required fields';
-    }else{
-        //do the edit
-        $result = editProduct($id, $title, $brand, $color, $price);
-        $message = 'Data seems alright...';
-    }
+    $result = editProduct($id, $title, $brand, $color, $price);
+    $message = 'Data seems alright...';
 }
 ?>
 
@@ -40,10 +36,9 @@ if(isset($_POST['submit'])){
 		<p><?php echo $message;?></p>
 	<?php endif;?>
 
-    <?php if($found_product = $results->fetch(PDO::FETCH_ASSOC));?> 
-
     <h2>Edit Product</h2>
 
+    <?php if($found_product = $results->fetch(PDO::FETCH_ASSOC));?>
     <form method="POST" action="admin_edit.php">
     <label for="img">Product Image:</label>
         <input type="file" name="img" id="img" value="<?php echo $found_product['product_img']; ?>"><br><br>
