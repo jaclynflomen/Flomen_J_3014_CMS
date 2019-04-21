@@ -1,27 +1,31 @@
-<?php
-require_once('scripts/config.php');
-confirm_logged_in();
-$id2 = $_SESSION['user_id']; //we put data into the session in the login.php file
-
-$tbl = 'tbl_products';
-$col = 'product_id';
-$products = getAll($tbl);
-
-$found_product_set = getSingle($tbl, $col, $id);
-if(is_string($found_product_set)){
-    $message = 'Failed to get product info!';
+<?php  require_once('scripts/config.php');
+if(isset($_GET['id'])){
+	$tbl = 'tbl_products';
+	$col = 'product_id';
+	$value = $_GET['id'];
+	$results = getSingle($tbl, $col, $value);
+}else{
+	
 }
 
 if(isset($_POST['submit'])){
     $img = $_POST['img'];
-    $name = $_POST['title'];
+    $title = $_POST['title'];
     $brand = $_POST['brand'];
     $color = $_POST['color'];
     $price = $_POST['price'];
-    $result = editProduct($id, $img, $title, $brand, $color, $price);
-	$message = $result;
+    //Validation
+    if(empty($title)){
+        $message = 'Please fill out the required fields';
+    }else{
+        //do the edit
+        $result = editProduct($id, $title, $brand, $color, $price);
+        $message = 'Data seems alright...';
+    }
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +40,7 @@ if(isset($_POST['submit'])){
 		<p><?php echo $message;?></p>
 	<?php endif;?>
 
-    <?php if($found_product = $found_product_set->fetch(PDO::FETCH_ASSOC)):?>
+    <?php if($found_product = $results->fetch(PDO::FETCH_ASSOC));?> 
 
     <h2>Edit Product</h2>
 
@@ -59,6 +63,5 @@ if(isset($_POST['submit'])){
 		<button type="submit" name="submit">Edit Product</button> 
         
     </form>
-    <?php endif;?>
 </body>
 </html>

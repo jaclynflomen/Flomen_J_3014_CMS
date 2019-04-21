@@ -2,7 +2,7 @@
 
 	function editProduct($id, $img, $title, $brand, $color, $price){
 		include('connect.php');
-
+		
 		$update_product_query = 'UPDATE tbl_products SET product_img=:img, product_name=:title,';
 		$update_product_query .=' product_brand=:brand, user_color=:color, product_price=:price';
 		$update_product_query .=' WHERE product_id = :id';
