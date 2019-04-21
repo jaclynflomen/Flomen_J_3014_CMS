@@ -11,12 +11,13 @@ if(is_string($results)){
 }
 
 if(isset($_POST['submit'])){
+    $id = $_POST['id'];
     $img = $_POST['img'];
     $title = $_POST['title'];
     $brand = $_POST['brand'];
     $color = $_POST['color'];
     $price = $_POST['price'];
-    $result = editProduct($id, $title, $brand, $color, $price);
+    $result = editProduct($id, $img, $title, $brand, $color, $price);
     $message = 'Data seems alright...';
 }
 ?>
@@ -40,7 +41,11 @@ if(isset($_POST['submit'])){
 
     <?php if($found_product = $results->fetch(PDO::FETCH_ASSOC));?>
     <form method="POST" action="admin_edit.php">
-    <label for="img">Product Image:</label>
+
+        <label for="id">Product ID:</label>
+        <input type="text" id="id" name="id" value="<?php echo $found_product['product_id'];?>"><br><br>
+
+        <label for="img">Product Image: (Must re-upload image!)</label>
         <input type="file" name="img" id="img" value="<?php echo $found_product['product_img']; ?>"><br><br>
 
         <label for="title">Product Name:</label>
@@ -52,7 +57,7 @@ if(isset($_POST['submit'])){
         <label for="color">Product Colour:</label>
         <input type="text" name="color" id="color" value="<?php echo $found_product['product_color']; ?>"><br><br>
 
-        <label for="price">Product Price:</label>
+        <label for="price">Product Price: $</label>
         <input type="text" name="price" id="price" value="<?php echo $found_product['product_price']; ?>"><br><br>
 
 		<button type="submit" name="submit">Edit Product</button> 

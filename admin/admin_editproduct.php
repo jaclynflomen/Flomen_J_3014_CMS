@@ -1,7 +1,6 @@
 <?php
 require_once('scripts/config.php');
 confirm_logged_in();
-// $id = $_SESSION['user_id']; //we put data into the session in the login.php file
 
 $tbl = 'tbl_products';
 $products = getAll($tbl);
@@ -20,8 +19,6 @@ $products = getAll($tbl);
     <?php if(!empty($message)):?>
 		<p><?php echo $message;?></p>
 	<?php endif;?>
-
-    <!-- $_GET['product_id'] -->
 
     <h2>Edit Product</h2>
 
